@@ -37,6 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Data\TapDataList.cs" />
+     <Compile Include="Assets\Scripts\System\BGMManager.cs" />
+     <Compile Include="Assets\Scripts\System\GameManager.cs" />
+     <Compile Include="Assets\Scripts\System\GameSettings.cs" />
+     <Compile Include="Assets\Scripts\System\SFXManager.cs" />
+     <Compile Include="Assets\Scripts\System\SaveData.cs" />
+     <Compile Include="Assets\Scripts\UI\Main\TapBar.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

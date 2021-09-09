@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d128b1da2d0b1064b8a7052c3333981d, type: 3}
+  m_Name: TapDataList
+  m_EditorClassIdentifier: 
+  tapDatas:
+  - tapType: 0
+    sprite: {fileID: 21300000, guid: 011deea0eab529d419b6a2f664282732, type: 3}
+    audioClip: {fileID: 8300000, guid: dab84a787d2805547a221542bed20f9e, type: 3}
+  - tapType: 1
+    sprite: {fileID: 21300000, guid: fbfcf0979678ade498b25f125fc7d218, type: 3}
+    audioClip: {fileID: 8300000, guid: 4e22eb0db7f36434d98b74cc6e5d9847, type: 3}
+  - tapType: 2
+    sprite: {fileID: 21300000, guid: 880abcb87d6ee88489c3121fc581e576, type: 3}
+    audioClip: {fileID: 8300000, guid: 460c3d8de0720f7419c109e0b9366d60, type: 3}
+  - tapType: 3
+    sprite: {fileID: 21300000, guid: 1bcf41052363f8a428387a4a73b7a1bb, type: 3}
+    audioClip: {fileID: 8300000, guid: c876c43755fff0a4c9189bd61c682aad, type: 3}
+  - tapType: 4
+    sprite: {fileID: 21300000, guid: 531edea780890284daa4e6d9718c73b3, type: 3}
+    audioClip: {fileID: 8300000, guid: 5fdee0f52cbe47c44b77bd292ba182b9, type: 3}

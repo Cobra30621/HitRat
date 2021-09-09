@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapDataList : MonoBehaviour
+[CreateAssetMenu(fileName = "TapDataList", menuName = "ScriptableObjects/TapDataList")]
+public class TapDataList : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<TapData> tapDatas;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+
+[System.Serializable]
+public class TapData{
+    public TapType tapType;
+    public Sprite sprite;
+    public AudioClip audioClip;
+
+}
+
+[System.Serializable]
+public enum TapType{
+    Dog = 0, Cat = 1, Horse = 2, GuineaPig = 3, Rat = 4
 }
