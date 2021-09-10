@@ -12,6 +12,9 @@ public class VideoManager : MonoBehaviour
     // Start is called before the first frame update
     private float stopTime;
 
+    void Start(){
+        rawImage.SetActive(false);
+    }
     
     
     [ContextMenu("TestPlay")]

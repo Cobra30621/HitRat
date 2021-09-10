@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\System\VideoManager.cs" />
      <Compile Include="Assets\Scripts\UI\GradeBar.cs" />
      <Compile Include="Assets\Scripts\UI\ResultUI.cs" />
+     <Compile Include="Assets\Scripts\UI\StartUI.cs" />
      <Compile Include="Assets\Scripts\UI\TapBar.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

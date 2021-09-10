@@ -56,7 +56,7 @@ public class ResultUI : MonoBehaviour
             }
         }
 
-
+        yield return new WaitForSeconds(0.5f);
         lab_grade.text = "Grade: " + gradeDataList.GetTotalGrade();
         buttonPanel.SetActive(true);
     }

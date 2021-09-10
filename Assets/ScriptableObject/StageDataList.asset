@@ -15,16 +15,16 @@ MonoBehaviour:
   stageDatas:
   - tapType: 0
     needTapCount: 20
-    grade: 10
+    grade: 8
   - tapType: 1
-    needTapCount: 30
-    grade: 20
+    needTapCount: 25
+    grade: 35
   - tapType: 2
     needTapCount: 30
-    grade: 40
+    grade: 197
   - tapType: 3
-    needTapCount: 40
-    grade: 80
+    needTapCount: 35
+    grade: 1111
   - tapType: 4
     needTapCount: 100
-    grade: 160
+    grade: 5543

@@ -311,10 +311,10 @@ MonoBehaviour:
   - tapType: 2
     time: 11.35
   - tapType: 3
-    time: 12.2
+    time: 12.3
   - tapType: 4
     time: 13.65
-  rawImage: {fileID: 463500372}
+  rawImage: {fileID: 946485909}
 --- !u!4 &88298981
 Transform:
   m_ObjectHideFlags: 0
