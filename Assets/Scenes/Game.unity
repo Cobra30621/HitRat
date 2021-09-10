@@ -1282,8 +1282,6 @@ MonoBehaviour:
   - id: 1
     keyCode: 273
   - id: 2
-    keyCode: 274
-  - id: 3
     keyCode: 275
   tapBarPrefab: {fileID: 5949148681429798664, guid: 7f499e69d443d0a4fb45e6c3e950bd03,
     type: 3}
@@ -1975,9 +1973,9 @@ RectTransform:
   m_Father: {fileID: 3830316906967503448}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550.7223, y: -82.41098}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3830316906848829353
@@ -1997,7 +1995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &3830316906848829366
 CanvasRenderer:
   m_ObjectHideFlags: 0

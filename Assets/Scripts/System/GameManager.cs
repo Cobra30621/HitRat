@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         public int id;
         public KeyCode keyCode;
     }
+    public int tapCount = 3;
 
     [Header("UI")]
     [SerializeField] private GameObject tapBarPrefab;
@@ -135,9 +136,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
+
     public TapBar AddTapBar(){
         // TapType tapType = TapType.Dog;
-        int id = Random.Range(0,4);
+        int id = Random.Range(0, tapCount);
         // TapType tapType = keyCodePairs[id].tapType;
 
         GameObject prefab = Instantiate(tapBarPrefab, tapBar_pos);
