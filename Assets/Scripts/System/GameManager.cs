@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour
 	}
 
     private void UpdateUI(){
-        lab_score.text = $"Score: {grade}";
-        lab_time.text = $"Time: " + Mathf.Ceil(nowTime);
+        // lab_score.text = $"Score: {grade}";
+        lab_time.text = "" + Mathf.Ceil(nowTime);
     }
 
     
