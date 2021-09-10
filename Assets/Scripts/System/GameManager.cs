@@ -13,8 +13,19 @@ public class GameManager : MonoBehaviour
     public int currentStageId;
     public int stageTapCount;
     public int grade;
+    
+    [Header("時間")]
     public float time;
-
+	private float totalTime = 30;
+	public float nowTime{
+		get{
+			if(time < 0)
+				return 0;
+			else
+				return time;
+		}
+	}
+    public bool timeOut;
     
     
 
@@ -33,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform tapBar_pos;
     [SerializeField] private List<TapBar> tapBarList;
     [SerializeField] private Text lab_score;
+    [SerializeField] private Text lab_time;
 
     void Start(){
         GameSettings.ResetToDefaults();
@@ -40,15 +52,19 @@ public class GameManager : MonoBehaviour
         GameInit();
     }
 
-    void Update(){
-        InputProcess();
-
-        lab_score.text = $"Score: {grade}";
+    public void Retry(){
+        GameInit();
     }
 
+    [ContextMenu("GameInit")]
     private void GameInit(){
         grade = 0;
+        stageTapCount = 0;
+        currentStageId = 0;
         currentStage = stageDataList.stageDatas[0];
+        time = totalTime;
+        timeOut = false;
+        
 
         DestoryAllTapBar();
 
@@ -58,7 +74,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Update(){
+        UpdateTime();
+        InputProcess();
+        UpdateUI();
+        
+    }
+
+    private void UpdateTime(){
+		time -= Time.deltaTime;
+		if(time < 0){
+            timeOut = true;
+			Debug.Log("遊戲結束");
+		}
+	}
+
+    private void UpdateUI(){
+        lab_score.text = $"Score: {grade}";
+        lab_time.text = $"Time: " + Mathf.Ceil(nowTime);
+    }
+
+    
     public void InputProcess(){
+        if(timeOut){return;}
+
         foreach (KeyCodePair pair in keyCodePairs)
         {
             if (Input.GetKeyDown(pair.keyCode))
@@ -139,8 +178,11 @@ public class GameManager : MonoBehaviour
     private void DestoryAllTapBar(){
         foreach (TapBar bar in tapBarList)
         {
-            DestoryTapBar(bar);
+            // if(bar != null)
+            Destroy(bar.gameObject);
         }
+        
+        tapBarList = new List<TapBar>();
     }
 
     private void DestoryTapBar(TapBar tapBar){
