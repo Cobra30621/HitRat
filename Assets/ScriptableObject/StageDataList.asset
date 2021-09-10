@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDatas:
   - tapType: 0
-    needTapCount: 15
-    grade: 1
+    needTapCount: 20
+    grade: 10
   - tapType: 1
-    needTapCount: 20
-    grade: 2
-  - tapType: 2
-    needTapCount: 20
-    grade: 4
-  - tapType: 3
     needTapCount: 30
-    grade: 8
-  - tapType: 4
+    grade: 20
+  - tapType: 2
+    needTapCount: 30
+    grade: 40
+  - tapType: 3
     needTapCount: 40
-    grade: 16
+    grade: 80
+  - tapType: 4
+    needTapCount: 100
+    grade: 160

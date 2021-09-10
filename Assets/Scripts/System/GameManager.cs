@@ -7,16 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public TapDataList tapDataList;
     public StageDataList stageDataList;
+    public GradeDataList gradeDataList;
     public TapType currentTapType;
     public StageData currentStage;
 
     public int currentStageId;
     public int stageTapCount;
     public int grade;
+
+    
     
     [Header("時間")]
     public float time;
-	private float totalTime = 30;
+	public float totalTime = 30;
 	public float nowTime{
 		get{
 			if(time < 0)
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
     public bool timeOut;
+    private bool hadShowResult;
     
     
 
@@ -46,6 +50,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<TapBar> tapBarList;
     [SerializeField] private Text lab_score;
     [SerializeField] private Text lab_time;
+    public ResultUI resultUI;
+    [SerializeField] private GameObject gamePanel;
 
     void Start(){
         GameSettings.ResetToDefaults();
@@ -59,13 +65,15 @@ public class GameManager : MonoBehaviour
 
     [ContextMenu("GameInit")]
     private void GameInit(){
-        grade = 0;
+        // grade = 0;
         stageTapCount = 0;
         currentStageId = 0;
         currentStage = stageDataList.stageDatas[0];
         time = totalTime;
         timeOut = false;
+        hadShowResult = false;
         
+        gradeDataList.Init(stageDataList.stageDatas);
 
         DestoryAllTapBar();
 
@@ -82,13 +90,29 @@ public class GameManager : MonoBehaviour
         
     }
 
+   
+
     private void UpdateTime(){
 		time -= Time.deltaTime;
 		if(time < 0){
             timeOut = true;
-			Debug.Log("遊戲結束");
+			
+            if(!hadShowResult){
+                ShowResult();
+            }
+            
 		}
+        
 	}
+
+    private void ShowResult(){
+        Debug.Log("遊戲結束");
+        gamePanel.SetActive(false);
+        resultUI.Show(gradeDataList); // 撥放結算動畫
+        hadShowResult = true;
+    }
+
+    
 
     private void UpdateUI(){
         // lab_score.text = $"Score: {grade}";
@@ -124,19 +148,18 @@ public class GameManager : MonoBehaviour
         TapBar currentBar = tapBarList[0];
         if(currentBar.tapId == tapId){ // 按對
             // Debug.Log($"playerTap:{playerTap}currentBar.tapType {currentBar.tapType}");
-            sfx.PlaySFX(  GetTapAudioClip(currentBar.tapType));
+            sfx.PlaySFX(  tapDataList.GetTapAudioClip(currentBar.tapType));
             AddTapBar();
             DestoryTapBar(currentBar);
 
-            grade += currentBar.grade;
+            gradeDataList.AddGrade(currentBar.tapType);
+            // grade += currentBar.grade;
             
         }
         else{ // 按錯
 
         }
     }
-
-    
 
     public TapBar AddTapBar(){
         // TapType tapType = TapType.Dog;
@@ -145,7 +168,7 @@ public class GameManager : MonoBehaviour
 
         GameObject prefab = Instantiate(tapBarPrefab, tapBar_pos);
         TapBar tapBar = prefab.GetComponent<TapBar>();
-        tapBar.SetInfo(id,currentStage.tapType,  GetTapSprite(currentStage.tapType), currentStage.grade);
+        tapBar.SetInfo(id,currentStage.tapType, tapDataList.GetTapSprite(currentStage.tapType), currentStage.grade);
 
         tapBarList.Add(tapBar);
 
@@ -176,8 +199,6 @@ public class GameManager : MonoBehaviour
         currentStage = stageDataList.stageDatas[currentStageId];
     }
 
-    
-
     private void DestoryAllTapBar(){
         foreach (TapBar bar in tapBarList)
         {
@@ -193,27 +214,5 @@ public class GameManager : MonoBehaviour
         Destroy(tapBar.gameObject);
     }
 
-    private Sprite GetTapSprite(TapType tapType){
-        foreach (TapData data in tapDataList.tapDatas)
-        {
-            if(data.tapType == tapType){
-                return data.sprite;
-            }
-        }
-        Debug.Log($"找不到Sprite{tapType}");
-
-        return null;
-    }
-
-    private AudioClip GetTapAudioClip(TapType tapType){
-        foreach (TapData data in tapDataList.tapDatas)
-        {
-            if(data.tapType == tapType){
-                return data.audioClip;
-            }
-        }
-        Debug.Log($"找不到audioClip{tapType}");
-
-        return null;
-    }
+    
 }
