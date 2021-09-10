@@ -976,19 +976,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapDataList: {fileID: 11400000, guid: 84c3026c26d50cc4998656b0ed399ab0, type: 2}
-  tapIds: 
+  stageDataList: {fileID: 11400000, guid: f152a7a4bd17d4d40b199a8988e2a61a, type: 2}
+  currentTapType: 0
+  currentStage:
+    tapType: 0
+    needTapCount: 0
+    grade: 0
+  currentStageId: 0
+  stageTapCount: 0
   grade: 0
   time: 0
   sfx: {fileID: 2041219827}
   keyCodePairs:
-  - keyCode: 276
-    tapType: 0
-  - keyCode: 273
-    tapType: 1
-  - keyCode: 274
-    tapType: 2
-  - keyCode: 275
-    tapType: 3
+  - id: 0
+    keyCode: 276
+  - id: 1
+    keyCode: 273
+  - id: 2
+    keyCode: 274
+  - id: 3
+    keyCode: 275
   tapBarPrefab: {fileID: 5949148681429798664, guid: 7f499e69d443d0a4fb45e6c3e950bd03,
     type: 3}
   tapBar_pos: {fileID: 1782022405}
@@ -1799,6 +1806,8 @@ MonoBehaviour:
   - {fileID: 3830316905812074222}
   - {fileID: 3830316906060073013}
   - {fileID: 3830316905790154333}
+  tapId: 0
+  grade: 0
 --- !u!114 &3830316906967503461
 MonoBehaviour:
   m_ObjectHideFlags: 0

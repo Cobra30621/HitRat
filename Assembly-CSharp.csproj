@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Data\StageDataList.cs" />
      <Compile Include="Assets\Scripts\Data\TapDataList.cs" />
      <Compile Include="Assets\Scripts\System\BGMManager.cs" />
      <Compile Include="Assets\Scripts\System\GameManager.cs" />
