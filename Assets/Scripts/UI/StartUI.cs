@@ -28,6 +28,15 @@ public class StartUI : MonoBehaviour
         leaderBoardManager.SavePlayerName(inputField.text);
         // playName = inputField.text;
     }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying=false;
+        #else
+            Application.Quit();
+        #endif
+    }
     
 }
 

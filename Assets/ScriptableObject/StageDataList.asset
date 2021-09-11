@@ -23,7 +23,7 @@ MonoBehaviour:
     needTapCount: 30
     grade: 197
   - tapType: 3
-    needTapCount: 35
+    needTapCount: 40
     grade: 1111
   - tapType: 4
     needTapCount: 100

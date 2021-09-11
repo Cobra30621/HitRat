@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
         GameInit();
         yield return new WaitForSeconds(0.4f);
         
+        sfx.PlaySFX(1);
 
         for (int i = 3; i > 0 ; i -- )
         {

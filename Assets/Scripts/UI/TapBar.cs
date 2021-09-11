@@ -40,6 +40,6 @@ public class TapBar : MonoBehaviour
         dOTweenAnimations[tapId].DORestart();
         Debug.Log($"撥放動畫{tapId}");
 
-        yield return dOTweenAnimations[tapId].duration * 2;
+        yield return new WaitForSeconds(dOTweenAnimations[tapId].duration * 2);
     }
 }
