@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     public ResultUI resultUI;
     [SerializeField] private GameObject gamePanel;
 
+    public LabAnime labAnime;
+
     void Awake(){
         instance = this;
     }
@@ -66,29 +68,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void Retry(){
-        GameInit();
+        StartGame();
     }
 
-    [ContextMenu("GameInit")]
-    public void GameInit(){
-        gamePanel.SetActive(true);
-        stageTapCount = 0;
-        currentStageId = 0;
-        currentStage = stageDataList.stageDatas[0];
-        time = totalTime;
-        timeOut = false;
-        hadShowResult = false;
-        gaming = true;
-
-        gradeDataList.Init(stageDataList.stageDatas);
-
-        DestoryAllTapBar();
-
-        for (int i = 0; i < 5; i++)
-        {
-            AddTapBar();
-        }
-    }
 
     void Update(){
         UpdateTime();
@@ -96,8 +78,6 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         
     }
-
-   
 
     private void UpdateTime(){
         if(!gaming){return;}
@@ -107,19 +87,12 @@ public class GameManager : MonoBehaviour
             timeOut = true;
 			gaming = false;
             if(!hadShowResult){
-                ShowResult();
+                StartCoroutine(ShowResult());
             }
             
 		}
         
 	}
-
-    private void ShowResult(){
-        Debug.Log("遊戲結束");
-        gamePanel.SetActive(false);
-        resultUI.Show(gradeDataList); // 撥放結算動畫
-        hadShowResult = true;
-    }
 
     
 
@@ -148,12 +121,56 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameCoroutine());
     }
 
+ 
     IEnumerator GameCoroutine()
     {
+        GameInit();
         yield return new WaitForSeconds(0.4f);
+        
+
+        for (int i = 3; i > 0 ; i -- )
+        {
+            yield return labAnime.Play(i + "");
+        }
+
+        yield return labAnime.Play("Start");
+        gaming = true;
+
+    }
+
+    public void GameInit(){
+        gamePanel.SetActive(true);
+        stageTapCount = 0;
+        currentStageId = 0;
+        currentStage = stageDataList.stageDatas[0];
+        time = totalTime;
+        timeOut = false;
+        hadShowResult = false;
+        
+
+        gradeDataList.Init(stageDataList.stageDatas);
+
+        DestoryAllTapBar();
+
+        for (int i = 0; i < 5; i++)
+        {
+            AddTapBar();
+        }
+    }
+
+    private IEnumerator ShowResult(){
+        Debug.Log("遊戲結束");
+        
+        yield return labAnime.Play("Time Out");
+        yield return new WaitForSeconds(0.4f);
+        gamePanel.SetActive(false);
+        resultUI.Show(gradeDataList); // 撥放結算動畫
+        hadShowResult = true;
     }
 
     public void OnTap(int tapId){
+        if(!gaming){return;}
+
         TapBar currentBar = tapBarList[0];
         if(currentBar.tapId == tapId){ // 按對
             // Debug.Log($"playerTap:{playerTap}currentBar.tapType {currentBar.tapType}");

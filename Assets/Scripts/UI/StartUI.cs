@@ -20,7 +20,7 @@ public class StartUI : MonoBehaviour
 
     public void StartGame(){
         panel.SetActive(false);
-        GameManager.instance.GameInit(); // 開始遊戲
+        GameManager.instance.StartGame(); // 開始遊戲
     }
 
     public void SetPlayerName(){
