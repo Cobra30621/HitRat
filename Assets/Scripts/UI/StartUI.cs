@@ -17,8 +17,8 @@ public class StartUI : MonoBehaviour
 
     void Start(){
         // leaderBoardManager.LoadPlayerName();
-        if(name != null)
-            inputField.text = name;
+        
+        inputField.text = PlayerPrefs.GetString("playerName", "");
     }
 
     public void StartGame(){
@@ -29,6 +29,7 @@ public class StartUI : MonoBehaviour
     public void SetPlayerName(){
         playfabManager.SubmitNameButton(inputField.text);
         name = inputField.text;
+        PlayerPrefs.SetString("playerName", name);
         // leaderBoardManager.SavePlayerName(inputField.text);
         // playName = inputField.text;
     }
