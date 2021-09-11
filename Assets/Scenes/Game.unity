@@ -3610,6 +3610,7 @@ MonoBehaviour:
   resultUI: {fileID: 1252400781}
   gamePanel: {fileID: 104216899}
   labAnime: {fileID: 1477051072}
+  failing: 0
 --- !u!1 &1896921809
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,7 +4137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa20cc0037662bb49acc5517921d8d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxData: []
+  sfxData:
+  - audioClip:
+    - {fileID: 8300000, guid: 001e2ccf6677ccf4bbd70655f805a24c, type: 3}
+    volume: 1
+    playOnEnable: 0
 --- !u!82 &2041219828
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4890,6 +4895,7 @@ MonoBehaviour:
   - {fileID: 3830316905812074222}
   - {fileID: 3830316906060073013}
   - {fileID: 3830316905790154333}
+  dOTweenAnimations: []
   tapId: 0
   grade: 0
 --- !u!114 &3830316906967503461

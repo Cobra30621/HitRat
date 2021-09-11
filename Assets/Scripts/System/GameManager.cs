@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
         time = totalTime;
         timeOut = false;
         hadShowResult = false;
+        failing = false;
         
 
         gradeDataList.Init(stageDataList.stageDatas);
@@ -168,8 +169,12 @@ public class GameManager : MonoBehaviour
         hadShowResult = true;
     }
 
+    public bool failing;
+
     public void OnTap(int tapId){
         if(!gaming){return;}
+
+        if(failing){return;}
 
         TapBar currentBar = tapBarList[0];
         if(currentBar.tapId == tapId){ // 按對
@@ -183,8 +188,16 @@ public class GameManager : MonoBehaviour
             
         }
         else{ // 按錯
-
+            failing = true;
+            sfx.PlaySFX(0);
+            StartCoroutine(PlayFailAnime(currentBar.tapId ));
         }
+    }
+
+    private IEnumerator PlayFailAnime(int tapId){
+        yield return tapBarList[0].PlayFailAnime(tapId);
+
+        failing = false;
     }
 
     public TapBar AddTapBar(){

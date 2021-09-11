@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TapBar : MonoBehaviour
 {
     public TapType tapType;
     public Image [] images;
+    public DOTweenAnimation [] dOTweenAnimations;
     public int tapId;
     public int grade;
 
@@ -27,5 +29,17 @@ public class TapBar : MonoBehaviour
         tapId = id;
         this.tapType = tapType;
         this.grade = grade;
+    }
+
+    public IEnumerator PlayFailAnime(int tapId){
+        if(tapId >= dOTweenAnimations.Length){
+            Debug.Log($"{tapId}超出範圍了");
+            yield return null;
+        }
+
+        dOTweenAnimations[tapId].DORestart();
+        Debug.Log($"撥放動畫{tapId}");
+
+        yield return dOTweenAnimations[tapId].duration * 2;
     }
 }

@@ -35,6 +35,11 @@ public class VideoManager : MonoBehaviour
         StartCoroutine(Play());
     }
 
+    public void SkipVideo(){
+        videoPlayer.Stop();
+        
+    }
+
     IEnumerator Play(){
         yield return new WaitForSeconds(stopTime);
         videoPlayer.Pause();
