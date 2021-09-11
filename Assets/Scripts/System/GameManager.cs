@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public TapDataList tapDataList;
     public StageDataList stageDataList;
     public GradeDataList gradeDataList;
+    public PlayfabManager playfabManager;
+
     public TapType currentTapType;
     public StageData currentStage;
 
@@ -167,6 +169,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         gamePanel.SetActive(false);
         resultUI.Show(gradeDataList); // 撥放結算動畫
+        // 紀錄玩家分數
+        int totalgrade = gradeDataList.GetTotalGrade();
+        playfabManager.SendLeaderboard(totalgrade);
+
         hadShowResult = true;
     }
 

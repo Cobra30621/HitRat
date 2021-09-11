@@ -42,12 +42,13 @@
      <Compile Include="Assets\Scripts\System\BGMManager.cs" />
      <Compile Include="Assets\Scripts\System\GameManager.cs" />
      <Compile Include="Assets\Scripts\System\GameSettings.cs" />
-     <Compile Include="Assets\Scripts\System\LeaderBoardManager.cs" />
+     <Compile Include="Assets\Scripts\System\PlayfabManager.cs" />
      <Compile Include="Assets\Scripts\System\SFXManager.cs" />
      <Compile Include="Assets\Scripts\System\SaveData.cs" />
      <Compile Include="Assets\Scripts\System\VideoManager.cs" />
      <Compile Include="Assets\Scripts\UI\GradeBar.cs" />
      <Compile Include="Assets\Scripts\UI\LabAnime.cs" />
+     <Compile Include="Assets\Scripts\UI\LeaderboardUI.cs" />
      <Compile Include="Assets\Scripts\UI\ResultUI.cs" />
      <Compile Include="Assets\Scripts\UI\StartUI.cs" />
      <Compile Include="Assets\Scripts\UI\TapBar.cs" />
@@ -683,6 +684,21 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{e6f72b7c-d6a0-1343-60f1-bc7ab58fe077}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabEditorExtensions.csproj">
+      <Project>{2334dba4-aa69-95b4-68b1-0944a5f25cd4}</Project>
+      <Name>PlayFabEditorExtensions</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="PlayFab.csproj">
+      <Project>{b4848fc8-817d-34cd-459a-3d6074bbd564}</Project>
+      <Name>PlayFab</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabSDKEditor.csproj">
+      <Project>{6831da53-0118-4b83-1250-f9b5b1302291}</Project>
+      <Name>PlayFabSDKEditor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

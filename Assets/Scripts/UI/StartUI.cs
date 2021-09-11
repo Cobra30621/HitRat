@@ -11,11 +11,14 @@ public class StartUI : MonoBehaviour
     [SerializeField] private InputField inputField;
     [SerializeField] private GameObject panel;
 
-    public LeaderBoardManager leaderBoardManager;
+    
+    private string name;
+    public PlayfabManager playfabManager;
 
     void Start(){
-        leaderBoardManager.LoadPlayerName();
-        inputField.text = leaderBoardManager.playerName;
+        // leaderBoardManager.LoadPlayerName();
+        if(name != null)
+            inputField.text = name;
     }
 
     public void StartGame(){
@@ -24,8 +27,9 @@ public class StartUI : MonoBehaviour
     }
 
     public void SetPlayerName(){
-        
-        leaderBoardManager.SavePlayerName(inputField.text);
+        playfabManager.SubmitNameButton(inputField.text);
+        name = inputField.text;
+        // leaderBoardManager.SavePlayerName(inputField.text);
         // playName = inputField.text;
     }
 
