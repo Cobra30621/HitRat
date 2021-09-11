@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{a966fc2d-5117-c9ad-d808-2475d436eda9}</ProjectGuid>
+    <ProjectGuid>{e6f72b7c-d6a0-1343-60f1-bc7ab58fe077}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -36,20 +36,24 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Data\GradeDataList.cs" />
-     <Compile Include="Assets\Scripts\Data\StageDataList.cs" />
-     <Compile Include="Assets\Scripts\Data\TapDataList.cs" />
-     <Compile Include="Assets\Scripts\System\BGMManager.cs" />
-     <Compile Include="Assets\Scripts\System\GameManager.cs" />
-     <Compile Include="Assets\Scripts\System\GameSettings.cs" />
-     <Compile Include="Assets\Scripts\System\LeaderBoardManager.cs" />
-     <Compile Include="Assets\Scripts\System\SFXManager.cs" />
-     <Compile Include="Assets\Scripts\System\SaveData.cs" />
-     <Compile Include="Assets\Scripts\System\VideoManager.cs" />
-     <Compile Include="Assets\Scripts\UI\GradeBar.cs" />
-     <Compile Include="Assets\Scripts\UI\ResultUI.cs" />
-     <Compile Include="Assets\Scripts\UI\StartUI.cs" />
-     <Compile Include="Assets\Scripts\UI\TapBar.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeUnityExtended.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
+     <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\Plugins\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
+     <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -679,11 +683,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{e6f72b7c-d6a0-1343-60f1-bc7ab58fe077}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
