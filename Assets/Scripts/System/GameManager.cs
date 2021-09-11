@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public TapDataList tapDataList;
     public StageDataList stageDataList;
     public GradeDataList gradeDataList;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 	}
     public bool timeOut;
     private bool hadShowResult;
+    private bool gaming;
     
     
 
@@ -53,10 +55,14 @@ public class GameManager : MonoBehaviour
     public ResultUI resultUI;
     [SerializeField] private GameObject gamePanel;
 
+    void Awake(){
+        instance = this;
+    }
+
     void Start(){
         GameSettings.ResetToDefaults();
-
-        GameInit();
+        gaming = false;
+        // GameInit();
     }
 
     public void Retry(){
@@ -64,15 +70,16 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("GameInit")]
-    private void GameInit(){
-        // grade = 0;
+    public void GameInit(){
+        gamePanel.SetActive(true);
         stageTapCount = 0;
         currentStageId = 0;
         currentStage = stageDataList.stageDatas[0];
         time = totalTime;
         timeOut = false;
         hadShowResult = false;
-        
+        gaming = true;
+
         gradeDataList.Init(stageDataList.stageDatas);
 
         DestoryAllTapBar();
@@ -93,10 +100,12 @@ public class GameManager : MonoBehaviour
    
 
     private void UpdateTime(){
+        if(!gaming){return;}
+
 		time -= Time.deltaTime;
 		if(time < 0){
             timeOut = true;
-			
+			gaming = false;
             if(!hadShowResult){
                 ShowResult();
             }

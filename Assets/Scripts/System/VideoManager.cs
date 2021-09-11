@@ -28,6 +28,7 @@ public class VideoManager : MonoBehaviour
     }
 
     public void PlayVideo(TapType tapType){
+        Debug.Log("Play");
         rawImage.SetActive(true);
         videoPlayer.Play();
         stopTime = GetStopTime(tapType);
