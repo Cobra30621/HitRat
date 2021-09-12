@@ -11,6 +11,8 @@ public class StartUI : MonoBehaviour
     [SerializeField] private InputField inputField;
     [SerializeField] private GameObject panel;
 
+    [SerializeField] private GameObject moreGamePanel;
+
     
     private string name;
     public PlayfabManager playfabManager;
@@ -41,6 +43,14 @@ public class StartUI : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    public void OpenMoreGamePanel(){
+        moreGamePanel.SetActive(true);
+    }
+
+    public void CloseMoreGamePanel(){
+        moreGamePanel.SetActive(false);
     }
     
 }

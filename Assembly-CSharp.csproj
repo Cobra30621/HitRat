@@ -45,13 +45,16 @@
      <Compile Include="Assets\Scripts\System\PlayfabManager.cs" />
      <Compile Include="Assets\Scripts\System\SFXManager.cs" />
      <Compile Include="Assets\Scripts\System\SaveData.cs" />
+     <Compile Include="Assets\Scripts\System\URLOpener.cs" />
      <Compile Include="Assets\Scripts\System\VideoManager.cs" />
+     <Compile Include="Assets\Scripts\UI\GameLinkBar.cs" />
      <Compile Include="Assets\Scripts\UI\GradeBar.cs" />
      <Compile Include="Assets\Scripts\UI\LabAnime.cs" />
      <Compile Include="Assets\Scripts\UI\LeaderboardUI.cs" />
      <Compile Include="Assets\Scripts\UI\ResultUI.cs" />
      <Compile Include="Assets\Scripts\UI\StartUI.cs" />
      <Compile Include="Assets\Scripts\UI\TapBar.cs" />
+     <Compile Include="Assets\Scripts\UI\TapBoard.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -686,14 +689,14 @@
       <Name>Assembly-CSharp-firstpass</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="PlayFabEditorExtensions.csproj">
-      <Project>{2334dba4-aa69-95b4-68b1-0944a5f25cd4}</Project>
-      <Name>PlayFabEditorExtensions</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="PlayFab.csproj">
       <Project>{b4848fc8-817d-34cd-459a-3d6074bbd564}</Project>
       <Name>PlayFab</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabEditorExtensions.csproj">
+      <Project>{2334dba4-aa69-95b4-68b1-0944a5f25cd4}</Project>
+      <Name>PlayFabEditorExtensions</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="PlayFabSDKEditor.csproj">

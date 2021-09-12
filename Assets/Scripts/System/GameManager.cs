@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         lab_time.text = "" + Mathf.Ceil(nowTime);
     }
 
+
     
     public void InputProcess(){
         if(timeOut){return;}
