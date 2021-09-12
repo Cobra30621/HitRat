@@ -15,6 +15,8 @@ public class VideoManager : MonoBehaviour
     void Start(){
         rawImage.SetActive(false);
         videoPlayer.url = System.IO.Path.Combine (Application.streamingAssetsPath,"rat.mov");
+        videoPlayer.Play();
+        videoPlayer.Pause();
     }
     
     

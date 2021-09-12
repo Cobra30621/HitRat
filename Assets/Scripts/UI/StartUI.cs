@@ -20,7 +20,7 @@ public class StartUI : MonoBehaviour
     void Start(){
         // leaderBoardManager.LoadPlayerName();
         
-        inputField.text = PlayerPrefs.GetString("playerName", "");
+        inputField.text = PlayerPrefs.GetString("playerName", "Rat");
     }
 
     public void StartGame(){
