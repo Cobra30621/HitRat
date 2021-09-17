@@ -20,13 +20,29 @@ public class PlayfabManager : MonoBehaviour
     }
 
     void Login(){
+        playerId =  PlayerPrefs.GetString("playerId", "-1");
+        if(playerId == "-1"){
+            playerId = Random.Range(0, 1000000) + "";
+            PlayerPrefs.SetString("playerId", playerId);
+        }
+        
+        Debug.Log($"PlayerId{playerId}");
+
         var request = new LoginWithCustomIDRequest{
-            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CustomId = playerId,
             CreateAccount = true,
             InfoRequestParameters = new GetPlayerCombinedInfoRequestParams{
                 GetPlayerProfile = true
             }
         };
+
+        // var request = new LoginWithCustomIDRequest{
+        //     CustomId = SystemInfo.deviceUniqueIdentifier,
+        //     CreateAccount = true,
+        //     InfoRequestParameters = new GetPlayerCombinedInfoRequestParams{
+        //         GetPlayerProfile = true
+        //     }
+        // };
         PlayFabClientAPI.LoginWithCustomID(request, OnSuccessLogin, OnError);
     }
 
@@ -143,6 +159,7 @@ public class PlayfabManager : MonoBehaviour
     void OnSuccessLogin(LoginResult result){
         loggedInPlayfabId = result.PlayFabId;
         Debug.Log("Successful login/account Create");
+        Debug.Log($"loggedInPlayfabId:{loggedInPlayfabId}");
         string name = null;
         if(result.InfoResultPayload.PlayerProfile != null)
             name = result.InfoResultPayload.PlayerProfile.DisplayName;

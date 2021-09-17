@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 637873586929707893}
-  lab_grade: {fileID: 637873585938626199}
   lab_count: {fileID: 637873587585822184}
 --- !u!1 &637873585938626193
 GameObject:
@@ -310,7 +309,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 03610acb9d64504438f887d2b8bbdea6, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
