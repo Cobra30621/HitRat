@@ -10,7 +10,7 @@ public class GameSettings
     public static void ResetToDefaults()
     {
         fullScreen = 0;
-        sfxVolume = 1f;
+        sfxVolume = 0.5f;
         bgmVolume = 0.5f;
         hardMode = 0;
     }
